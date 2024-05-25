@@ -56,7 +56,7 @@ class StateController with ScaffoldMessengerMixin, NavigatorMixin implements ISt
     assert(_context != null, 'Context is not available because it was not provided yet from the state');
     assert(isReady, 'Context is not available because the controller is not ready');
     assert(!isDisposed, 'Context is not available because the controller is disposed');
-    return _context!;
+    return scaffoldKey.currentContext ?? _context!;
   }
 
   @override
@@ -70,4 +70,6 @@ class StateController with ScaffoldMessengerMixin, NavigatorMixin implements ISt
 
   @override
   bool get isMounted => isReady && context.mounted && !isDisposed;
+
+  GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 }
