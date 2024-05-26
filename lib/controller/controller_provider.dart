@@ -1,7 +1,7 @@
-part of 'state_controller.dart';
+part of 'controller.dart';
 
-class StateControllerProvider<T extends StateController> extends StatefulWidget {
-  const StateControllerProvider({required this.create, required this.builder, super.key});
+class ControllerProvider<T extends Controller> extends StatefulWidget {
+  const ControllerProvider({required this.create, required this.builder, super.key});
 
   /// The function that creates the controller
   /// typically you want to use dependency injection to provide the factory function for the controller
@@ -11,10 +11,10 @@ class StateControllerProvider<T extends StateController> extends StatefulWidget 
   final Widget Function(T) builder;
 
   @override
-  State<StateControllerProvider> createState() => _StateControllerProviderState<T>();
+  State<ControllerProvider> createState() => _ControllerProviderState<T>();
 }
 
-class _StateControllerProviderState<T extends StateController> extends State<StateControllerProvider<T>> {
+class _ControllerProviderState<T extends Controller> extends State<ControllerProvider<T>> {
   T? controller;
 
   @override
@@ -45,7 +45,7 @@ class _StateControllerProviderState<T extends StateController> extends State<Sta
 
   @override
   Widget build(BuildContext context) {
-    return StateControllerInheritedWidget<T>(
+    return ControllerInheritedWidget<T>(
       controller: controller!,
       child: widget.builder(
         controller!,

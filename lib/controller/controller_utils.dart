@@ -1,4 +1,4 @@
-part of 'state_controller.dart';
+part of 'controller.dart';
 
 abstract mixin class ScaffoldMessengerMixin {
   BuildContext get context;

@@ -1,15 +1,15 @@
-part of 'state_controller.dart';
+part of 'controller.dart';
 
-abstract class StateControllerView<T extends StateController> extends StatefulWidget {
-  const StateControllerView({super.key});
+abstract class ControllerView<T extends Controller> extends StatefulWidget {
+  const ControllerView({super.key});
 
   Widget build(BuildContext context, T controller);
 
   @override
-  State<StateControllerView<T>> createState() => _StateControllerViewState<T>();
+  State<ControllerView<T>> createState() => _ControllerViewState<T>();
 }
 
-class _StateControllerViewState<T extends StateController> extends State<StateControllerView<T>> {
+class _ControllerViewState<T extends Controller> extends State<ControllerView<T>> {
   T? controller;
 
   @override

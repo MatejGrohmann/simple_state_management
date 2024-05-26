@@ -1,8 +1,8 @@
-part of 'state_controller.dart';
+part of 'controller.dart';
 
 /// Controller Interface represents the lifecycle of a controller
 /// Controller gives you same functionality as an stateful widget
-abstract interface class IStateControllerInterface {
+abstract interface class IControllerInterface {
   /// Called with the [onInit] method of the state
   void onInit();
 

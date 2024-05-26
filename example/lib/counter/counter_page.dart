@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_state_management/controller/state_controller.dart';
-import 'package:simple_state_management/simple_reactive/simple_reactive.dart';
+import 'package:simple_state_management/controller/controller.dart';
+import 'package:simple_state_management/reactive/reactive.dart';
 
 import 'counter_controller.dart';
 
@@ -9,7 +9,7 @@ class CounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StateControllerProvider<CounterController>(
+    return ControllerProvider<CounterController>(
       create: () => CounterController(),
       builder: (controller) => Scaffold(
         key: controller.scaffoldKey,
@@ -23,13 +23,15 @@ class CounterPage extends StatelessWidget {
               const Text(
                 'You have pushed the button this many times:',
               ),
-              SimpleReactiveBuilder(builder: (context) {
-                final count = controller.count.value;
-                return Text(
-                  '$count',
-                  style: Theme.of(context).textTheme.displayLarge,
-                );
-              }),
+              ReactiveBuilder(
+                builder: (context) {
+                  final count = controller.count.value;
+                  return Text(
+                    '$count',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -39,7 +41,7 @@ class CounterPage extends StatelessWidget {
   }
 }
 
-class CounterButtonBar extends StateControllerView<CounterController> {
+class CounterButtonBar extends ControllerView<CounterController> {
   const CounterButtonBar({super.key});
 
   @override

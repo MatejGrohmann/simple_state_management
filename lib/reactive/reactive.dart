@@ -2,13 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-part 'simple_reactive_stream.dart';
+part 'reactive_stream.dart';
 
-part 'simple_reactive_builder.dart';
+part 'reactive_builder.dart';
 
-typedef SrStream<T extends Object> = SimpleReactiveStream<T>;
+part 'reactive_listener_interface.dart';
 
-typedef SrnStream<T extends Object> = SimpleReactiveStream<T?>;
+part 'reactive_subscriber.dart';
+
+typedef SimpleStream<T extends Object> = SimpleReactiveStream<T>;
+
+typedef NullableSimpleStream<T extends Object> = SimpleReactiveStream<T?>;
 
 extension SrStreamSafe<T extends Object> on T {
   SimpleReactiveStream<T> get asStream => SimpleReactiveStream<T>(this);
@@ -17,4 +21,3 @@ extension SrStreamSafe<T extends Object> on T {
 extension SrStreamNullable<T extends Object?> on T {
   SimpleReactiveStream<T> get asStream => SimpleReactiveStream<T>(this);
 }
-

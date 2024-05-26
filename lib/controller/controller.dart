@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-part 'state_controller_interface.dart';
+part 'controller_interface.dart';
 
-part 'state_controller_provider.dart';
+part 'controller_provider.dart';
 
-part 'state_controller_utils.dart';
+part 'controller_utils.dart';
 
-part 'state_controller_inherited_widget.dart';
+part 'controller_inherited_widget.dart';
 
-part 'state_controller_extensions.dart';
+part 'controller_extensions.dart';
 
-part 'state_controller_view.dart';
+part 'controller_view.dart';
 
-class StateController with ScaffoldMessengerMixin, NavigatorMixin implements IStateControllerInterface {
+part 'controller_builder.dart';
+
+class Controller with ScaffoldMessengerMixin, NavigatorMixin implements IControllerInterface {
   BuildContext? _context;
   VoidCallback? _setStateCallback;
   bool? _isReady;
